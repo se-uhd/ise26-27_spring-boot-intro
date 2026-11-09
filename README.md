@@ -86,11 +86,15 @@ The environment variable `SPRING_PROFILES_ACTIVE` activates the profile as well:
 SPRING_PROFILES_ACTIVE=dev gradle bootRun
 ```
 
-`gradle bootJar` builds an executable JAR in `build/libs/` that contains the application and its dependencies, and
-`java -jar` starts it, here with the dev profile as an application argument:
+`gradle bootJar` builds an executable JAR in `build/libs/` that contains the application and its dependencies:
 
 ```shell
 gradle bootJar
+```
+
+`java -jar` starts the JAR, here with the dev profile as an application argument:
+
+```shell
 java -jar build/libs/ise26-27_spring-boot-intro-0.0.1.jar --spring.profiles.active=dev
 ```
 
