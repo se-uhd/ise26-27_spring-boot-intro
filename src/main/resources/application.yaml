@@ -1,3 +1,16 @@
 spring:
   application:
     name: spring-boot-intro
+
+greeting:
+  salutation: Hello
+
+---
+# The dev profile, active with --spring.profiles.active=dev, replaces the salutation.
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+greeting:
+  salutation: Hi
