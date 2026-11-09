@@ -29,25 +29,70 @@ installation directory, and the Gradle home is its subdirectory `gradle-9.8.2`, 
 `/Users/<name>/.local/share/mise/installs/gradle/9.8.2/gradle-9.8.2` on macOS. Then reload the Gradle project and start
 the application with the run icon next to the `main` function in `DemoApp.kt`.
 
-## Running the application
+## Building and running the application
 
-`gradle bootRun` starts the application on port 8080. Send requests to it with curl from a second terminal:
+Each command below is in its own `shell` block. In IntelliJ, the run icon next to a block runs its command, so you can
+go through the steps from this README.
+
+Compile the code and run the tests:
+
+```shell
+gradle build
+```
+
+Start the application. It listens on port 8080 and keeps running until you stop it with Ctrl+C:
+
+```shell
+gradle bootRun
+```
+
+Send the following requests while the application runs, from a second terminal if you work in a shell. `GET /hello`
+returns `Hello, Spring Boot!`:
 
 ```shell
 curl http://localhost:8080/hello
+```
+
+`GET /greeting` returns `Hello, World!`:
+
+```shell
 curl http://localhost:8080/greeting
+```
+
+The query parameter `name` replaces "World", so this request returns `Hello, Kitty!`:
+
+```shell
 curl "http://localhost:8080/greeting?name=Kitty"
 ```
 
-The first command prints `Hello, Spring Boot!`, the second `Hello, World!`, and the third `Hello, Kitty!`. The dev
-profile replaces the salutation "Hello" with "Hi". Stop the application with Ctrl+C and start it again with the dev
-profile:
+## Profiles
+
+The dev profile in `application.yaml` replaces the salutation "Hello" with "Hi". Stop the application with Ctrl+C and
+start it with the dev profile:
 
 ```shell
 gradle bootRun --args='--spring.profiles.active=dev'
 ```
 
-Now `curl http://localhost:8080/greeting` prints `Hi, World!`. `gradle build` compiles the code and runs the tests.
+Now `GET /greeting` returns `Hi, World!`:
+
+```shell
+curl http://localhost:8080/greeting
+```
+
+The environment variable `SPRING_PROFILES_ACTIVE` activates the profile as well:
+
+```shell
+SPRING_PROFILES_ACTIVE=dev gradle bootRun
+```
+
+`gradle bootJar` builds an executable JAR in `build/libs/` that contains the application and its dependencies, and
+`java -jar` starts it, here with the dev profile as an application argument:
+
+```shell
+gradle bootJar
+java -jar build/libs/ise26-27_spring-boot-intro-0.0.1.jar --spring.profiles.active=dev
+```
 
 ## Files
 
