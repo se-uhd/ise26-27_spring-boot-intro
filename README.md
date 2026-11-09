@@ -82,5 +82,6 @@ generated project where it follows the setup of Coffee Kitty:
 - The configuration is in `application.yaml` instead of `application.properties`.
 - `gradle.properties` enables the configuration cache and overrides the Jackson version until Spring Boot brings a
   fixed release.
+- The tests run with the JVM option `-Xshare:off`, which removes a warning about class data sharing.
 - The files are indented with four spaces instead of tabs, as `.editorconfig` defines.
 - A GitHub Actions workflow runs `gradle build` for every push to `main` and every pull request.

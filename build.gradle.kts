@@ -44,4 +44,8 @@ kotlin {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+    // The Mockito agent from spring-boot-starter-test appends to the boot class path, and the JVM then warns that class
+    // data sharing works only for the boot loader. Turning class data sharing off removes the warning, as in Coffee
+    // Kitty.
+    jvmArgs("-Xshare:off")
 }
