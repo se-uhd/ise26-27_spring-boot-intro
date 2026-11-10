@@ -6,7 +6,7 @@ greeting:
   salutation: Hello
 
 ---
-# The dev profile, active with --spring.profiles.active=dev, replaces the salutation.
+# These settings apply when the dev profile is active (--spring.profiles.active=dev) and replace the salutation above.
 spring:
   config:
     activate:

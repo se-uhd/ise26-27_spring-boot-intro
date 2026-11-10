@@ -8,7 +8,7 @@ import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.get
 
-/** Tests `GET /greeting` with the dev profile, which replaces the salutation in `application.yaml`. */
+/** Tests `GET /greeting` with the dev profile, for which `application.yaml` sets the salutation to "Hi". */
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("dev")

@@ -8,8 +8,8 @@ import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.get
 
 /**
- * Starts the application without a server and sends requests through MockMvc, which calls the controllers as the
- * server would.
+ * Starts the application without an HTTP server. MockMvc passes each request to the controllers inside the test
+ * process.
  */
 @SpringBootTest
 @AutoConfigureMockMvc

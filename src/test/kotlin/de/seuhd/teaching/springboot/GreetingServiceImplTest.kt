@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
 /**
- * Tests [GreetingServiceImpl] without Spring. Because the class receives its dependency through the constructor, the
- * test can pass its own [GreetingProperties].
+ * Tests [GreetingServiceImpl] without Spring. With constructor injection, the test can create the [GreetingProperties]
+ * object and pass it to the constructor.
  */
 class GreetingServiceImplTest {
     @Test

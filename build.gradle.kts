@@ -1,16 +1,17 @@
-// The build file that Spring Initializr (https://start.spring.io/) generates for a "Gradle - Kotlin" project with
-// Kotlin, Spring Boot 4.1.2, Java 25, and the dependency Spring Web, with Kotlin 2.4.21 instead of 2.3.21. Kotlin 2.4
-// applies annotations on constructor properties to the parameter and the property by default, so the compiler option
-// -Xannotation-default-target=param-property that Initializr adds is left out.
+// This build file starts from the one that Spring Initializr (https://start.spring.io/) generates for the project type
+// "Gradle - Kotlin", the language Kotlin, Spring Boot 4.1.2, Java 25, and the dependency Spring Web. This file uses
+// Kotlin 2.4.21 instead of 2.3.21 and leaves out the compiler option -Xannotation-default-target=param-property, which
+// Initializr adds. The option makes an annotation on a constructor property apply to the parameter and the property,
+// and Kotlin 2.4 does this by default.
 plugins {
     kotlin("jvm") version "2.4.21"
-    // Opens the classes that carry Spring annotations, such as @RestController, because Kotlin classes are final by
+    // Makes the classes with Spring annotations, such as @RestController, open, because Kotlin classes are final by
     // default and Spring creates subclasses of some beans at runtime.
     kotlin("plugin.spring") version "2.4.21"
     // Adds the tasks bootRun and bootJar.
     id("org.springframework.boot") version "4.1.2"
-    // Takes the versions of the Spring Boot dependencies from the Spring Boot BOM, so the dependencies below have no
-    // version.
+    // Takes the versions of the dependencies below from the Spring Boot BOM (bill of materials). The dependencies
+    // therefore omit the version.
     id("io.spring.dependency-management") version "1.1.7"
 }
 
@@ -44,8 +45,8 @@ kotlin {
 
 tasks.withType<Test> {
     useJUnitPlatform()
-    // The Mockito agent from spring-boot-starter-test appends to the boot class path, and the JVM then warns that class
-    // data sharing works only for the boot loader. Turning class data sharing off removes the warning, as in Coffee
-    // Kitty.
+    // Mockito comes with spring-boot-starter-webmvc-test and attaches an agent that appends to the boot class path. The
+    // JVM then warns that class data sharing works only for classes of the boot loader. Turning class data sharing off
+    // removes the warning.
     jvmArgs("-Xshare:off")
 }

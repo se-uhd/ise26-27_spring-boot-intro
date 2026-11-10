@@ -5,10 +5,11 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan
 import org.springframework.boot.runApplication
 
 /**
- * The Spring Boot application. `@SpringBootApplication` turns on the auto-configuration and the component scan, which
- * creates a bean for each annotated class in this package and its subpackages, such as [HelloController].
- * `@ConfigurationPropertiesScan` does the same for the classes annotated with `@ConfigurationProperties`, such as
- * [GreetingProperties].
+ * The application class that [main] passes to `runApplication`. `@SpringBootApplication` turns on auto-configuration
+ * and the component scan. The component scan creates a bean for each class in this package and its subpackages that is
+ * annotated with `@Component` or with an annotation based on `@Component`, such as `@RestController` on
+ * [HelloController]. `@ConfigurationPropertiesScan` creates a bean for each class annotated with
+ * `@ConfigurationProperties`, such as [GreetingProperties].
  */
 @SpringBootApplication
 @ConfigurationPropertiesScan

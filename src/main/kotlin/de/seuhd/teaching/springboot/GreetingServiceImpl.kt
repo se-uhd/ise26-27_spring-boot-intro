@@ -3,7 +3,7 @@ package de.seuhd.teaching.springboot
 import org.springframework.stereotype.Service
 
 /**
- * The implementation of [GreetingService]. The component scan creates a bean of this class because of `@Service`, and
+ * The implementation of [GreetingService]. Because of `@Service`, the component scan creates a bean of this class.
  * Spring passes the [GreetingProperties] bean to the constructor (constructor injection).
  */
 @Service
