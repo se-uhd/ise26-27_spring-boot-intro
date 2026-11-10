@@ -1,4 +1,4 @@
-// The build file that Spring Initializr (https://start.spring.io/) generates for a Gradle - Kotlin project with
+// The build file that Spring Initializr (https://start.spring.io/) generates for a "Gradle - Kotlin" project with
 // Kotlin, Spring Boot 4.1.2, Java 25, and the dependency Spring Web, with Kotlin 2.4.21 instead of 2.3.21. Kotlin 2.4
 // applies annotations on constructor properties to the parameter and the property by default, so the compiler option
 // -Xannotation-default-target=param-property that Initializr adds is left out.

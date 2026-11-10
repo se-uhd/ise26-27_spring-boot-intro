@@ -15,5 +15,5 @@ import org.springframework.boot.runApplication
 class DemoApp
 
 fun main(args: Array<String>) {
-    runApplication<DemoApp>(*args)
+    runApplication<DemoApp>(*args) // vararg, * passes elements of args
 }
