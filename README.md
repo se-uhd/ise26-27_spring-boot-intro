@@ -3,19 +3,23 @@
 This repository contains a minimal Spring Boot application in Kotlin for the lecture on Spring Boot. `DemoApp.kt` and
 `HelloController.kt` are the "Hello, World!" from the slides, and a greeting example shows constructor injection,
 configuration properties, and a profile. [Coffee Kitty](https://github.com/se-uhd/coffee-kitty), the running example of
-the course, uses the same concepts in an application with four Gradle subprojects and a PostgreSQL database. This
+the course, uses the same concepts in an application with four modules and a PostgreSQL database. This
 application needs neither Docker nor a database.
 
 ## Setup
 
 The project needs the Temurin JDK 25 and Gradle 9.8. Gradle downloads the Kotlin compiler and Spring Boot during the
 build, so you do not need to install them. The easiest way to install both tools in the right versions is
-[mise](https://mise.jdx.dev), which reads them from [`mise.toml`](mise.toml):
+[mise](https://mise.jdx.dev), which reads them from [`mise.toml`](mise.toml). In the repository directory, allow mise to
+use this file:
 
 ```shell
-git clone https://github.com/se-uhd/ise26-27_spring-boot-intro.git
-cd ise26-27_spring-boot-intro
 mise trust
+```
+
+Then install the tools:
+
+```shell
 mise install
 ```
 
